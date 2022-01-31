@@ -16,8 +16,22 @@
     <style>
       body {
         margin-top: 70px;
-        background-color: #333;
-        color: #fff;
+        background-color: #121212;
+        color: #F5F5F5;
+      }
+      .one{
+        background-color: #F05454;
+        color: #F5F5F5;
+      }
+      .two{
+        background-color: #30475E;
+        color: #F5F5F5;
+        
+      }
+      .three{
+        color: #F5F5F5;
+        background-color: #191A19;
+
       }
     </style>
   </head>
@@ -32,23 +46,23 @@
               type="number"
               class="form-control form-control-lg mb-2"
               placeholder="Enter Pounds..."
-              min="0"
+              min="1"
             />
           </form>
           <div id="output">
-            <div class="card bg-primary mb-2">
+            <div class="card one mb-2">
               <div class="card-body">
                 <h4>Grams:</h4>
                 <div id="gramsOutput"></div>
               </div>
             </div>
-            <div class="card bg-success mb-2">
+            <div class="card two mb-2">
               <div class="card-body">
                 <h4>Kilogram:</h4>
                 <div id="kgOutput"></div>
               </div>
             </div>
-            <div class="card bg-danger mb-2">
+            <div class="card three mb-2">
               <div class="card-body">
                 <h4>Ounces:</h4>
                 <div id="ozOutput"></div>
@@ -71,8 +85,7 @@
             document.getElementById('kgOutput').innerHTML = lbs/0.22046;
             document.getElementById('ozOutput').innerHTML = lbs*16;
             document.getElementById('NewtonOutput').innerHTML = lbs*4.448;
-          
-        })
+          })
     </script>
   </body>
 </html>
