@@ -19,6 +19,7 @@
             background-color: #e7ecef;
             color: #030303;
             height: 100vh;
+            box-sizing: border-box;
         }
         .navbar{
             background-color: #e7ecef;
@@ -56,6 +57,24 @@
         .logo{
             width: 2rem;
         }
+        .hi{
+          border: none;
+          background-color: #e7ecef;
+          outline: none;
+          border-bottom: #caced1 1px solid;
+          -webkit-transition: width 0.4s ease-in-out;
+           transition: width 0.4s ease-in-out;
+        }
+        @media only screen and (min-width:600px) {
+          .hi{
+            width: 15rem;
+          }
+          .hi:focus{
+            width: 20rem;
+            border-bottom: #000000 1px solid;
+          }
+          
+        }
     </style>
   </head>
   <body>
@@ -64,7 +83,8 @@
       <a class="navbar-brand display-4" href="#"><img class="logo" src="assets/vr_black.png" alt=""></a>
       
         <form>
-          <input autocomplete="off" class="form-control" onkeyup="search()" id="search-bar" type="text" placeholder="Search Projects" aria-label="Search Projects">
+          <!-- <input autocomplete="off" class="form-control hi" onkeyup="search()" id="search-bar" type="text" placeholder="Search Projects" aria-label="Search Projects"> -->
+          <input autocomplete="off" class=" hi" onkeyup="search()" id="search-bar" type="text" placeholder="Search Projects" aria-label="Search Projects">
         </form>
       </div>
     </div>
