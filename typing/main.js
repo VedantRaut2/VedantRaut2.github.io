@@ -78,7 +78,7 @@ var wordsList = [
     "I went to the dentist the other day and he let me pick a prize out of the prize box",
     "The box was small and wrapped in paper with tiny silver and red glitter dots",
     "My dad is so funny that he told us jokes all night long and we never fell asleep",
-    "How did you know that I was going to have a peanut butter sandwich for lunch?",
+    "How did you know that I was going to have a peanut butter sandwich for lunch",
     "That boy is so mean that he doesn't care if a door slams in your face or if he cuts in line",
     "One of the most beautiful qualities of true friendship is to understand and to be understood",
     "Go for it now. The future is promised to no one",
