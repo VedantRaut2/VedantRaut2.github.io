@@ -49,7 +49,6 @@
                 -khtml-user-select: none;
                 -moz-user-select: none;
                 -ms-user-select: none;
-                user-select: none;
             }
             .list-group-item:first-child {
                 border-bottom-left-radius: inherit !important;
@@ -87,7 +86,7 @@
     <body>
         <nav class="navbar navbar-expand-lg">
             <div class="container-xl">
-                <a class="navbar-brand display-4" href="#"><img class="logo" src="assets/vr_black.png" alt="" /></a>
+                <a tabindex="-1" class="navbar-brand display-4" href="#"><img class="logo" src="assets/vr_black.png" alt="" /></a>
 
                 <form onsubmit="return false">
                     <input autocomplete="off" class="hi" onkeyup="search()" id="search-bar" type="text" placeholder="Search Projects" aria-label="Search Projects" />
@@ -102,16 +101,17 @@
 
             <ul class="list-group">
                 <li class="list-group-item display-6 hmm">
-                    <a class="titles" href="https://vedantraut2.github.io/weight_converter/" target="_blank">Weight Converter</a>
+                    <a tabindex="-1" class="titles" href="https://vedantraut2.github.io/weight_converter/" target="_blank">Weight Converter</a>
                 </li>
                 <li class="list-group-item display-6 hmm">
-                    <a class="titles" href="https://vedantraut2.github.io/typing/index.html" target="_blank">Typing Test</a>
+                    <a tabindex="-1" class="titles" href="https://vedantraut2.github.io/typing/index.html" target="_blank">Typing Test</a>
                 </li>
-                 <li  class="list-group-item display-6 hmm"><a class="titles" href="https://lovelyweather.netlify.app/" target="_blank">Weather App</a></li>
-                <!--<li  class="list-group-item display-6 hmm"><a class="titles" href="#" target="_blank">raut</a></li>
-                <li  class="list-group-item display-6 hmm"><a class="titles" href="#" target="_blank">veda</a></li> -->
+                <li class="list-group-item display-6 hmm"><a tabindex="-1" class="titles" href="https://lovelyweather.netlify.app/" target="_blank">Weather App</a></li>
+                <!-- <li class="list-group-item display-6 hmm"><a tabindex="-1" class="titles" href="https://lovelyweather.netlify.app/" target="_blank">Weather App</a></li>
+                <li class="list-group-item display-6 hmm"><a tabindex="-1" class="titles" href="https://lovelyweather.netlify.app/" target="_blank">Weather App</a></li> -->
             </ul>
         </div>
+        `
 
         <script>
             function search() {
