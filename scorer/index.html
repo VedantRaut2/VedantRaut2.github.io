@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Gully Cricket Scorer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <link rel="icon" type="image/x-icon" href="/cricket_PNG46.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="d">
+                    <div class="teams">
+                        <div class="team1">Team 1</div>
+                        <div class="team2">Team 2</div>
+                    </div>
+                    <div class="scores">
+                        <div class="a">
+                            <div class="score1" id="score1">0/0</div>
+                            <div class="overs1" id="overs1">(0.0)</div>
+                        </div>
+                        <div class="b">
+                            <div class="score2" id="score2">0/0</div>
+                            <div class="overs2" id="overs2">(0.0)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="controls">
+                <div class="c">
+                    <div class="runs">
+                        <button id="plus0" onclick="overUpdater()">0 run</button>
+                        <button id="plus1" onclick="run1()">1 run</button>
+                        <button id="plus2" onclick="run2()">2 runs</button>
+                        <button id="plus3" onclick="run3()">3 runs</button>
+                        <button id="plus4" onclick="run4()">4 runs</button>
+                        <button id="plus6" onclick="run6()">6 runs</button>
+                    </div>
+                    <div class="extras">
+                        <button id="wide" onclick="wideRun()">Wide</button>
+                        <button id="noBall" onclick="noBallRun()">No Ball</button>
+                    </div>
+                    <button id="wicket" onclick="out()">Wicket</button>
+                    <button id="allOut" onclick="Allout()">All Out</button>
+                    <button id="allOut2" class="hide" onclick="Allout2()">All Out</button>
+                    <button id="over" onclick="fristInningsOver()">Innings Over</button>
+                    <button id="over2" class="hide" onclick="winner();">Second Innings Over</button>
+                    <div id="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
