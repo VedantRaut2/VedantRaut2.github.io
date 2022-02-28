@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="wrapper">
@@ -35,16 +36,16 @@
             <div class="controls">
                 <div class="c">
                     <div class="runs">
-                        <button id="plus0" onclick="overUpdater()">0 run</button>
+                        <button id="plus0" onclick="run0()">0 run</button>
                         <button id="plus1" onclick="run1()">1 run</button>
                         <button id="plus2" onclick="run2()">2 runs</button>
                         <button id="plus3" onclick="run3()">3 runs</button>
                         <button id="plus4" onclick="run4()">4 runs</button>
                         <button id="plus6" onclick="run6()">6 runs</button>
                     </div>
-                    <div class="extras">
-                        <button id="wide" onclick="wideRun()">Wide</button>
-                        <button id="noBall" onclick="noBallRun()">No Ball</button>
+                    <div class="extras" id="extras">
+                        <label> <input type="checkbox" id="wide" class="radio" value="1" name="fooby[1][]" />Wide</label>
+                        <label> <input type="checkbox" id="noBall" class="radio" value="1" name="fooby[1][]" />No Ball</label>
                     </div>
                     <button id="wicket" onclick="out()">Wicket</button>
                     <button id="allOut" onclick="Allout()">All Out</button>
