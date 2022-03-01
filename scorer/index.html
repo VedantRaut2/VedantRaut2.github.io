@@ -13,7 +13,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <div class="wrapper">
+        <div tabindex="-1" class="wrapper">
             <div class="header">
                 <div class="d">
                     <div class="teams">
@@ -33,25 +33,25 @@
                 </div>
             </div>
             <hr />
-            <div class="controls">
+            <div tabindex="-1" class="controls">
                 <div class="c">
                     <div class="runs">
-                        <button id="plus0" onclick="run0()">0 run</button>
-                        <button id="plus1" onclick="run1()">1 run</button>
-                        <button id="plus2" onclick="run2()">2 runs</button>
-                        <button id="plus3" onclick="run3()">3 runs</button>
-                        <button id="plus4" onclick="run4()">4 runs</button>
-                        <button id="plus6" onclick="run6()">6 runs</button>
+                        <button tabindex="-1" id="plus0" onclick="run0()">0 run</button>
+                        <button tabindex="-1" id="plus1" onclick="run1()">1 run</button>
+                        <button tabindex="-1" id="plus2" onclick="run2()">2 runs</button>
+                        <button tabindex="-1" id="plus3" onclick="run3()">3 runs</button>
+                        <button tabindex="-1" id="plus4" onclick="run4()">4 runs</button>
+                        <button tabindex="-1" id="plus6" onclick="run6()">6 runs</button>
                     </div>
-                    <div class="extras" id="extras">
-                        <label> <input type="checkbox" id="wide" class="radio" value="1" name="fooby[1][]" />Wide</label>
-                        <label> <input type="checkbox" id="noBall" class="radio" value="1" name="fooby[1][]" />No Ball</label>
+                    <div tabindex="-1" class="extras" id="extras">
+                        <label> <input tabindex="-1" type="checkbox" id="wide" class="radio" value="1" name="fooby[1][]" />Wide</label>
+                        <label> <input tabindex="-1" type="checkbox" id="noBall" class="radio" value="1" name="fooby[1][]" />No Ball</label>
                     </div>
-                    <button id="wicket" onclick="out()">Wicket</button>
-                    <button id="allOut" onclick="Allout()">All Out</button>
-                    <button id="allOut2" class="hide" onclick="Allout2()">All Out</button>
-                    <button id="over" onclick="fristInningsOver()">Innings Over</button>
-                    <button id="over2" class="hide" onclick="winner();">Second Innings Over</button>
+                    <button tabindex="-1" id="wicket" onclick="out()">Wicket</button>
+                    <button tabindex="-1" id="allOut" onclick="Allout()">All Out</button>
+                    <button tabindex="-1" id="allOut2" class="hide" onclick="Allout2()">All Out</button>
+                    <button tabindex="-1" id="over" onclick="fristInningsOver()">Innings Over</button>
+                    <button tabindex="-1" id="over2" class="hide" onclick="winner();">Second Innings Over</button>
                     <div id="result"></div>
                 </div>
             </div>
