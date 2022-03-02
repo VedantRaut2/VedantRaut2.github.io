@@ -168,6 +168,7 @@ function overUpdater() {
             overs2.innerText = `(${team2Stats.overs}.${team2Stats.balls})`
         }
     }
+    local()
 }
 function winner() {
     localStorage.clear()
@@ -485,3 +486,6 @@ function Allout2() {
     winner()
 
 }
+
+
+
