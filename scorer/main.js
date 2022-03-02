@@ -1,18 +1,15 @@
 $("input:checkbox").on('click', function () {
-    // in the handler, 'this' refers to the box clicked on
     var $box = $(this);
     if ($box.is(":checked")) {
-        // the name of the box is retrieved using the .attr() method
-        // as it is assumed and expected to be immutable
         var group = "input:checkbox[name='" + $box.attr("name") + "']";
-        // the checked state of the group/box on the other hand will change
-        // and the current value is retrieved using .prop() method
         $(group).prop("checked", false);
         $box.prop("checked", true);
     } else {
         $box.prop("checked", false);
     }
 });
+
+
 const score1 = document.getElementById('score1')
 const score2 = document.getElementById('score2')
 const plus0 = document.getElementById("plus0")
@@ -32,6 +29,9 @@ const overs1 = document.getElementById("overs1")
 const overs2 = document.getElementById("overs2")
 const result = document.getElementById("result")
 const extras = document.getElementById("extras")
+let reload = false
+let allOutBool1 = false
+let allOutBool2 = false
 let noball = false
 let wideCheckbox = false
 let over = false
@@ -46,6 +46,53 @@ let team2Stats = {
     wickets: 0,
     overs: 0,
     balls: 0
+}
+function local() {
+    localStorage.setItem("score1", team1Stats.score)
+    localStorage.setItem("wickets1", team1Stats.wickets)
+    localStorage.setItem("overs1", team1Stats.overs)
+    localStorage.setItem("balls1", team1Stats.balls)
+    localStorage.setItem("score2", team2Stats.score)
+    localStorage.setItem("wickets2", team2Stats.wickets)
+    localStorage.setItem("overs2", team2Stats.overs)
+    localStorage.setItem("balls2", team2Stats.balls)
+    localStorage.setItem("allout1", JSON.stringify(allOutBool1))
+    localStorage.setItem("allout2", JSON.stringify(allOutBool2))
+    localStorage.setItem("over", JSON.stringify(over))
+}
+
+if (Number(localStorage.getItem("score1")) > 0 || Number(localStorage.getItem("wickets1")) > 0 || Number(localStorage.getItem("overs1")) > 0 || Number(localStorage.getItem("balls1")) > 0) {
+    if (JSON.parse(localStorage.getItem("allout1"))) {
+        score1.innerText = `${Number(localStorage.getItem("score1"))} All Out`
+
+    } else {
+
+        score1.innerText = `${Number(localStorage.getItem("score1"))}/${Number(localStorage.getItem("wickets1"))}`
+    }
+    overs1.innerText = `(${Number(localStorage.getItem("overs1"))}.${Number(localStorage.getItem("balls1"))})`
+    team1Stats.score = Number(localStorage.getItem("score1"))
+    team1Stats.wickets = Number(localStorage.getItem("wickets1"))
+    team1Stats.overs = Number(localStorage.getItem("overs1"))
+    team1Stats.balls = Number(localStorage.getItem("balls1"))
+    if (Number(localStorage.getItem("score2")) > 0 || Number(localStorage.getItem("wickets2")) > 0 || Number(localStorage.getItem("overs2")) > 0 || Number(localStorage.getItem("balls2")) > 0) {
+        if (JSON.parse(localStorage.getItem("allout2"))) {
+            score2.innerText = `${Number(localStorage.getItem("score2"))} All Out`
+
+        } else {
+
+            score2.innerText = `${Number(localStorage.getItem("score2"))}/${Number(localStorage.getItem("wickets2"))}`
+        }
+        overs2.innerText = `(${Number(localStorage.getItem("overs2"))}.${Number(localStorage.getItem("balls2"))})`
+        team2Stats.score = Number(localStorage.getItem("score2"))
+        team2Stats.wickets = Number(localStorage.getItem("wickets2"))
+        team2Stats.overs = Number(localStorage.getItem("overs2"))
+        team2Stats.balls = Number(localStorage.getItem("balls2"))
+        fristInningsOver()
+
+    }
+}
+if (JSON.parse(localStorage.getItem("over"))) {
+    fristInningsOver()
 }
 wide.addEventListener("click", () => {
     if (wide.checked) {
@@ -64,17 +111,23 @@ noBall.addEventListener("click", () => {
 function run0() {
     if (!wideCheckbox && !noball) {
         overUpdater()
+        local()
+
     } else {
         if (!over) {
             team1Stats.score++;
             updateTeam1()
+            local()
+
         }
         if (over) {
             team2Stats.score++;
             updateTeam2()
+            local()
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
     }
@@ -117,6 +170,7 @@ function overUpdater() {
     }
 }
 function winner() {
+    localStorage.clear()
     if (team1Stats.score === team2Stats.score) {
         result.innerHTML = "Tie"
         hide()
@@ -136,6 +190,7 @@ function fristInningsOver() {
     allOut2.classList.remove("hide")
     inningsOver.classList.add("hide")
     over2.classList.remove("hide")
+    local()
 }
 
 function updateTeam1() {
@@ -150,13 +205,18 @@ function run1() {
         if (!over) {
             team1Stats.score += 2;
             updateTeam1()
+            local()
+
         }
         if (over) {
             team2Stats.score += 2;
             updateTeam2()
+            local()
+
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
     } else {
@@ -164,44 +224,59 @@ function run1() {
         if (!over) {
             team1Stats.score++;
             updateTeam1()
+            local()
+
         }
         if (over) {
             team2Stats.score++;
             updateTeam2()
+            local()
+
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
         overUpdater()
     }
-
 }
 function run2() {
     if (wideCheckbox || noball) {
         if (!over) {
             team1Stats.score += 3;
             updateTeam1()
+            local()
+
         }
         if (over) {
             team2Stats.score += 3;
             updateTeam2()
+            local()
+
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
     } else {
         if (!over) {
             team1Stats.score += 2;
             updateTeam1()
+
+            local()
+
         }
         if (over) {
             team2Stats.score += 2;
             updateTeam2()
+            local()
+
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
         overUpdater()
@@ -212,26 +287,35 @@ function run3() {
         if (!over) {
             team1Stats.score += 4;
             updateTeam1()
+            local()
+
         }
         if (over) {
             team2Stats.score += 4;
             updateTeam2()
+            local()
+
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
     } else {
         if (!over) {
             team1Stats.score += 3;
             updateTeam1()
+            local()
+
         }
         if (over) {
             team2Stats.score += 3;
             updateTeam2()
+            local()
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
         overUpdater()
@@ -242,26 +326,36 @@ function run4() {
         if (!over) {
             team1Stats.score += 5;
             updateTeam1()
+            local()
+
         }
         if (over) {
             team2Stats.score += 5;
             updateTeam2()
+            local()
+
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
     } else {
         if (!over) {
             team1Stats.score += 4;
             updateTeam1()
+            local()
+
         }
         if (over) {
             team2Stats.score += 4;
             updateTeam2()
+            local()
+
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
         overUpdater()
@@ -272,26 +366,36 @@ function run6() {
         if (!over) {
             team1Stats.score += 7;
             updateTeam1()
+            local()
+
         }
         if (over) {
             team2Stats.score += 7;
             updateTeam2()
+            local()
+
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
     } else {
         if (!over) {
             team1Stats.score += 6;
             updateTeam1()
+            local()
+
         }
         if (over) {
             team2Stats.score += 6;
             updateTeam2()
+            local()
+
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
+                localStorage.clear()
             }
         }
         overUpdater()
@@ -319,18 +423,23 @@ function out() {
         }
         overUpdater()
     }
+    local()
 }
 function wideRun() {
     if (!over) {
         team1Stats.score++;
         updateTeam1()
+        local()
+
     }
     if (over) {
         team2Stats.score++;
         updateTeam2()
+        local()
         if (team2Stats.score > team1Stats.score) {
             result.innerHTML = "Team 2 Won"
             hide()
+            localStorage.clear()
         }
     }
 }
@@ -338,13 +447,17 @@ function noBallRun() {
     if (!over) {
         team1Stats.score++;
         updateTeam1()
+        local()
+
     }
     if (over) {
         team2Stats.score++;
         updateTeam2()
+        local()
         if (team2Stats.score > team1Stats.score) {
             result.innerHTML = "Team 2 Won"
             hide()
+            localStorage.clear()
         }
     }
 }
@@ -356,9 +469,11 @@ function Allout() {
         overUpdater()
     }
     fristInningsOver()
-
+    allOutBool1 = true
+    local()
 }
 function Allout2() {
+
     if (wideCheckbox || noball) {
         score2.innerText = `${team2Stats.score} All Out`
     }
@@ -366,9 +481,7 @@ function Allout2() {
         score2.innerText = `${team2Stats.score} All Out`
         overUpdater()
     }
+    allOutBool2 = true
     winner()
+
 }
-
-
-
-
