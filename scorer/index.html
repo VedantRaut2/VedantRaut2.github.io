@@ -6,7 +6,7 @@
         <title>Gully Cricket Scorer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-        <link rel="icon" type="image/x-icon" href="/scorer/cricket_PNG46.png" />
+        <link rel="icon" type="image/x-icon" href="/cricket_PNG46.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet" />
@@ -52,6 +52,9 @@
                     <button tabindex="-1" id="allOut2" class="hide" onclick="Allout2()">All Out</button>
                     <button tabindex="-1" id="over" onclick="fristInningsOver()">Innings Over</button>
                     <button tabindex="-1" id="over2" class="hide" onclick="winner();">Second Innings Over</button>
+                    <div>
+                        <button tabindex="-1" id="reset" onclick="localStorage.clear() & location.reload()">Reset</button>
+                    </div>
                     <div id="result"></div>
                 </div>
             </div>
