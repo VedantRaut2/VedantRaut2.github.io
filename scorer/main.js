@@ -8,8 +8,6 @@ $("input:checkbox").on('click', function () {
         $box.prop("checked", false);
     }
 });
-
-
 const score1 = document.getElementById('score1')
 const score2 = document.getElementById('score2')
 const plus0 = document.getElementById("plus0")
@@ -118,7 +116,6 @@ function run0() {
             team1Stats.score++;
             updateTeam1()
             local()
-
         }
         if (over) {
             team2Stats.score++;
@@ -379,6 +376,7 @@ function run6() {
                 result.innerHTML = "Team 2 Won"
                 hide()
                 localStorage.clear()
+
             }
         }
     } else {
@@ -386,20 +384,19 @@ function run6() {
             team1Stats.score += 6;
             updateTeam1()
             local()
-
+            overUpdater()
         }
         if (over) {
             team2Stats.score += 6;
             updateTeam2()
             local()
-
+            overUpdater()
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
                 localStorage.clear()
             }
         }
-        overUpdater()
     }
 }
 function out() {
@@ -417,12 +414,14 @@ function out() {
         if (!over) {
             team1Stats.wickets++;
             updateTeam1()
+            overUpdater()
         }
         if (over) {
             team2Stats.wickets++;
             updateTeam2()
+            overUpdater()
+
         }
-        overUpdater()
     }
     local()
 }
@@ -486,6 +485,3 @@ function Allout2() {
     winner()
 
 }
-
-
-
