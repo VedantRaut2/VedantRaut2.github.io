@@ -223,12 +223,15 @@ function run1() {
             team1Stats.score++;
             updateTeam1()
             local()
+            overUpdater()
 
         }
         if (over) {
             team2Stats.score++;
             updateTeam2()
             local()
+            overUpdater()
+
 
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
@@ -236,7 +239,6 @@ function run1() {
                 localStorage.clear()
             }
         }
-        overUpdater()
     }
 }
 function run2() {
@@ -262,14 +264,14 @@ function run2() {
         if (!over) {
             team1Stats.score += 2;
             updateTeam1()
-
             local()
-
+            overUpdater()
         }
         if (over) {
             team2Stats.score += 2;
             updateTeam2()
             local()
+            overUpdater()
 
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
@@ -277,7 +279,6 @@ function run2() {
                 localStorage.clear()
             }
         }
-        overUpdater()
     }
 }
 function run3() {
@@ -304,19 +305,21 @@ function run3() {
             team1Stats.score += 3;
             updateTeam1()
             local()
+            overUpdater()
 
         }
         if (over) {
             team2Stats.score += 3;
             updateTeam2()
             local()
+            overUpdater()
+
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
                 hide()
                 localStorage.clear()
             }
         }
-        overUpdater()
     }
 }
 function run4() {
@@ -343,12 +346,14 @@ function run4() {
             team1Stats.score += 4;
             updateTeam1()
             local()
+            overUpdater()
 
         }
         if (over) {
             team2Stats.score += 4;
             updateTeam2()
             local()
+            overUpdater()
 
             if (team2Stats.score > team1Stats.score) {
                 result.innerHTML = "Team 2 Won"
@@ -356,7 +361,6 @@ function run4() {
                 localStorage.clear()
             }
         }
-        overUpdater()
     }
 }
 function run6() {
