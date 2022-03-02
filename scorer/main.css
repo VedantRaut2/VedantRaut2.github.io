@@ -26,6 +26,7 @@ body {
 .header {
     height: 20vh;
     background-color: #fbf8f1;
+    overflow: auto;
 }
 
 hr {
@@ -38,12 +39,21 @@ button {
     outline: none;
     border: 1px solid rgb(189, 155, 155);
     border-radius: 5px;
+    cursor: pointer;
+}
+.radio,
+label {
+    cursor: pointer;
+}
+.radio {
+    transform: translateY(10%);
 }
 .controls {
     text-align: center;
     justify-content: center;
     background-color: #f7ecde;
     height: 100%;
+    overflow: auto;
 }
 .teams {
     width: 100%;
