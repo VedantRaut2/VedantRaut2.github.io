@@ -1,3 +1,4 @@
+
 $("input:checkbox").on('click', function () {
     var $box = $(this);
     if ($box.is(":checked")) {
@@ -28,7 +29,12 @@ const overs2 = document.getElementById("overs2")
 const result = document.getElementById("result")
 const extras = document.getElementById("extras")
 let reload = false
-let allOutBool1 = false
+let allOutBool1
+if (JSON.parse(localStorage.getItem("allout1"))) {
+    allOutBool1 = true
+} else {
+    allOutBool1 = false
+}
 let allOutBool2 = false
 let noball = false
 let wideCheckbox = false
@@ -59,6 +65,7 @@ function local() {
     localStorage.setItem("over", JSON.stringify(over))
 }
 
+
 if (Number(localStorage.getItem("score1")) > 0 || Number(localStorage.getItem("wickets1")) > 0 || Number(localStorage.getItem("overs1")) > 0 || Number(localStorage.getItem("balls1")) > 0) {
     if (JSON.parse(localStorage.getItem("allout1"))) {
         score1.innerText = `${Number(localStorage.getItem("score1"))} All Out`
@@ -72,6 +79,8 @@ if (Number(localStorage.getItem("score1")) > 0 || Number(localStorage.getItem("w
     team1Stats.wickets = Number(localStorage.getItem("wickets1"))
     team1Stats.overs = Number(localStorage.getItem("overs1"))
     team1Stats.balls = Number(localStorage.getItem("balls1"))
+
+
     if (Number(localStorage.getItem("score2")) > 0 || Number(localStorage.getItem("wickets2")) > 0 || Number(localStorage.getItem("overs2")) > 0 || Number(localStorage.getItem("balls2")) > 0) {
         if (JSON.parse(localStorage.getItem("allout2"))) {
             score2.innerText = `${Number(localStorage.getItem("score2"))} All Out`
@@ -86,7 +95,6 @@ if (Number(localStorage.getItem("score1")) > 0 || Number(localStorage.getItem("w
         team2Stats.overs = Number(localStorage.getItem("overs2"))
         team2Stats.balls = Number(localStorage.getItem("balls2"))
         fristInningsOver()
-
     }
 }
 if (JSON.parse(localStorage.getItem("over"))) {
